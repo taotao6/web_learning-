@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #first{
+            width: 20px;
+            height: 20px;
+            border-width: 10px;
+            border-style: solid;
+            border-color: red green blue brown;
+        }
+        .para {
+            display: inline-block;
+            color: #fff;
+            padding: 0 10px;
+            position: relative;
+            height: 24px;
+            line-height: 24px;
+            margin-left: 12px;
+            background: red;
+        }
+        .para:after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            position: absolute;
+            border-style: solid;
+            border-width: 12px 6px;
+            top: 0;
+            right: -12px;
+        }
+        .para:before {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            position: absolute;
+            border-style: solid;
+            border-width: 12px 6px;
+            top: 0;
+            left: -12px;
+        }
+        .para:before {
+            border-color: transparent red red transparent;
+        }
+        .para:after {
+            border-color: red transparent transparent red;
+        }
+        .city {
+            display: inline-block;
+            padding: 5px 20px;
+            border: 1px solid #44a5fc;
+            color: #333;
+            transform: skew(-20deg);
+        }
+    </style>
+</head>
+<body>
+    <div id="first">
+    </div>
+    <div class="para">1</div>
+    <div class="para">2</div>
+    <div class="para">3</div>
+
+    <div class="city">上海</div>
+</body>
+</html>

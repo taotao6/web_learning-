@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/typed.js/2.0.5/typed.js"></script>
+
+    <style>
+        .typed-cursor{
+            opacity: 1;
+            -webkit-animation: blink 0.7s infinite;
+            -moz-animation: blink 0.7s infinite;
+            animation: blink 0.7s infinite;
+        }
+        @keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-webkit-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-moz-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+    </style>
+</head>
+<body>
+<span class="element"></span>
+
+<script>
+    var typed = new Typed('.element', {
+        strings: ["你是我一生只想遇见一次的惊喜", "要努力学习啊,涛涛"],
+        typeSpeed: 100, //打字速度
+        backSpeed: 50 //回退速度
+    });
+</script>
+</body>
+</html>
