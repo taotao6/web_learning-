@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>css旋转信息简介</title>
+  <style type="text/css">
+    body{
+        margin:0;
+        font-size:0;
+    }
+    .message{
+        width:940px;
+        height:300px;
+       
+        margin:60px auto;/*外边距 上下 左右*/
+    }
+    .messagelist{
+        float:left;
+        width:300px;
+        height:300px;
+        
+        margin-right:20px;
+        perspective:1000px;
+       }
+    .messagelist:hover .listtext{
+        transform:rotateY(0deg);
+        }
+     .messagelist:hover .listpic{
+        transform:rotateY(-90deg);
+        }
+    .messagelist:nth-child(3){
+        margin-right:0;
+    }
+    .listpic,.listtext{
+        position:absolute;
+        width:300px;
+        height:300px;
+        transition:0.5s;/*过渡:让该元素的属性在发生改变时,变化得慢一些*/
+    }
+    .listtext{
+        background-color:rgba(0,0,0,0.6);
+        transform:rotateY(90deg);
+        }
+    p{
+            text-align:center;
+            font-size:16px;
+            padding-top:90px;
+            color:#ffffff;
+            }
+  </style> 
+ </head>
+ <body>
+    <div class="message">
+        <div class="messagelist">
+            <div class="listpic">
+                <img src="css样式/img/小男孩.jpg"/ width=300;height=300;alt="小男孩";>
+            </div>
+            <div class="listtext">
+            <p>这是一个可爱的小男孩,他头上戴着一顶大帽子,显得十分可爱,希望大家能够喜欢他</p>
+            </div>
+        </div>
+        <div class="messagelist"></div>
+        <div class="messagelist"></div>
+    </div>
+ </body>
+</html>

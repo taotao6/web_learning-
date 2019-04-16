@@ -1,0 +1,49 @@
+*{
+  		margin:0;
+  		padding:0;
+  		box-sizing: border-box; /*css3盒子模型*/
+  }
+em,i
+  {
+  		font-style:normal;
+  }
+li{
+  		list-style:none;
+  }
+img{
+ 		border:0;
+ 		vertical-align:middle;/*文字和图片水平居中*/
+ }
+button{
+ 		cursor:pointer
+ 	}
+a{		
+		 text-decoration: none;
+ 		color:#050505;
+ 		
+ 	}
+a:hover{
+ 		color:#e33333
+ 	}
+button,input{
+ 		font-family:Microsoft YaHei,Heiti SC,tahoma,arial,Hiragino Sans GB,\\5B8B\4F53,sans-serif
+ 	}
+body{
+ 		-webkit-font-smoothing:antialiased;
+ 		background-color:#f3f3f3;
+ 		font:12px/1.5 Microsoft YaHei,Heiti SC,tahoma,arial,Hiragino Sans GB,\\5B8B\4F53,sans-serif;color:#666
+ 	}
+.hide,.none{
+ 		display:none
+ 		}
+ .clearfix:after{
+ 		visibility:hidden;clear:both;display:block;content:".";height:0
+ 		}
+.clearfix{
+ 		*zoom:1
+ }
+ /*版心*/
+ .w{
+ 	width: 1200px;
+ 	margin: auto;
+ }

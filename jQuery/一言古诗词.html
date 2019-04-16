@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <P>加载中...</P>
+    <button>获取古诗词</button>
+    <br>
+    <img src="https://api.gushi.ci/all.png">
+    <br>
+    <span id="jinrishici-sentence">正在加载今日诗词....</span>
+    <p><img src="https://api.gushi.ci/all.svg?font-size=18&spacing=4"></p>
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+<script>
+    $(function () {
+        $("button").click(function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open('get','https://api.gushi.ci/all.json');
+            xhr.onreadystatechange=function(){
+                if (xhr.readyState === 4) {
+                    var data = JSON.parse(xhr.responseText);
+                    var gushici = $("p").eq(0);
+                    gushici.text(data.content+"----"+data.author+"<"+data.origin+">");
+
+                }
+            };
+            xhr.send();
+        });
+    });
+
+</script>
+</body>
+</html>

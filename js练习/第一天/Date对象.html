@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var dt = new Date();
+		// var dt =+ new Date();一种特殊写法，当浏览器不支持h5的时候
+		//获取年份
+		console.log(dt.getFullYear());
+		//获取月份,从0开始
+		console.log(dt.getMonth()+1);
+		//获取日期
+		console.log(dt.getDate());
+		//获取小时
+		console.log(dt.getHours());
+		//获取分钟
+		console.log(dt.getMinutes());
+		//获取秒
+		console.log(dt.getSeconds());
+		//获取星期，从0开始
+		console.log(dt.getDay());
+		//获取日期,英文
+		console.log(dt.toDateString());
+		//获取日期，数字
+		console.log(dt.toLocaleDateString());
+		//获取时间，英文
+		console.log(dt.toTimeString());
+		//获取时间，数字
+		console.log(dt.toLocaleTimeString());
+		//获取时间戳，毫秒
+		console.log(dt.valueOf());
+		function getDate(dt){
+			var year = dt.getFullYear();
+			var month = dt.getMonth()+1;
+			var day = dt.getDate();
+			var hour = dt.getHours();
+			var minute = dt.getMinutes();
+			var second = dt.getSeconds();
+			month = month<10?"0"+month:month;
+			day = day<10?"0"+day:day;
+			hour = hour<10?"0"+hour:hour;
+			minute = minute<10?"0"+minute:minute;
+			second = second<10?"0"+second:second;
+			return year+"年"+month+"月"+day+"日"+" "+hour+":"+minute+":"+second;
+		}
+		console.log(getDate(dt));
+	</script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>天猫组件开发</title>
+		<style type="text/css">
+			*{/* *:通配符选择器*/
+				margin: 0;/*清除默认外边距8px*/
+			}
+			body{
+				background-color:#434343;
+			}
+			#wrap{/*id选择器*/
+				width:600px;
+				height:360px;
+				margin: 50px auto;
+				padding: 10px;
+				background-color: #eee;
+				border-radius: 10px;
+				box-shadow: 0 0 8px #fff;
+				/*影子横向位置 影子纵向位置 影子的羽化程度 颜色*/
+			}
+			#wrap .choose{
+				width: 100%;/*父级高度600px*/
+				height: 220px;
+				background-color: #368;/*海牙蓝色*/
+				border-bottom: 1px solid #ccc;
+			}
+			#wrap .choose .c_left{
+				width: 360px;
+				height: 100%;
+				padding: 20px;
+				background-color: red;
+				float: left;
+			}
+			#wrap .choose .c_left p span{
+				padding: 8px;
+				border: 1px solid #666;
+				color: #666;
+
+			}
+			#wrap .choose .c_left p{
+				height: 50px;
+			}
+			#wrap .choose .c_left p span.on{
+				border: 2px solid #f60;
+				background-image: url() no-repeat right bottom;
+				padding: 7px;
+			}
+			#wrap .choose .c_left i{
+				margin-right:15px;
+				font-style: normal;/*修正文字样式*/
+				font-size: 16px;
+			}
+			#wrap .choose .c_right{
+				display: block;/*成块状显示*/
+				float: right;
+			}
+		</style>
+	</head>
+	<body>
+		<!--盒子模型 在网页中划分区域的元素标签 span文字节点-->
+		<div id="wrap">
+			<div class="choose">
+				<div class="c_left">
+					<p class="model">
+						<i>型号</i>
+						<span class="on">4.7英寸</span>
+						<span>5.5</span>
+					</p>
+					<p class="color">
+						<i>颜色</i>
+						<span class="on">银色</span>
+						<span>金色</span>
+						<span>深空灰色</span>
+					</p>
+					<p class="rom">
+						<i>内存</i>
+						<span class="on">16GB</span>
+						<span>32GB</span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<img class="c_right" src="">
+	</body>
+</html>

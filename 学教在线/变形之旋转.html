@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			/*width: 200px;
+			height: 200px;
+			background-color: pink;
+			margin: 100px auto;
+			transition: all 0.9s;
+			transform-origin: right bottom;*/
+			/*设置旋转中心点*/
+			width: 250px;
+			height: 145px;
+			border:1px solid red;
+			margin: 150px auto;
+			position: relative;
+		}
+		div img{
+			width: 100%;
+			height: auto;
+			position: absolute;
+			top: 0;
+			left: 0;
+			transition: all 0.5s;
+			transform-origin: top right;
+		}
+		div:hover img:first-child{
+			
+			transform: rotate(60deg);
+			/*transform: rotate(360deg);/**/
+			/*顺时针旋转*/
+		}
+		div:hover img:nth-child(2){
+			transform: rotate(120deg);
+		}
+		div:hover img:nth-child(3){
+			transform: rotate(180deg);
+		}
+		div:hover img:nth-child(4){
+			transform: rotate(240deg);
+		}
+		div:hover img:nth-child(5){
+			transform: rotate(300deg);
+		}
+		div:hover img:nth-child(6){
+			transform: rotate(360deg);
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<img src="image/胡歌.png">
+		<img src="image/胡歌1.png">
+		<img src="image/胡歌2.png">
+		<img src="image/王爷.png">
+		<img src="image/胡歌.png">
+		<img src="image/胡歌.png">
+	</div>
+</body>
+</html>

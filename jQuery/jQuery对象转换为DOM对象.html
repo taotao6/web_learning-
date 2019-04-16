@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		body{
+			background: url(https://api.oasislee.club/pics/?c=unsplash)  no-repeat center center;background-size:cover;background-attachment:fixed;background-color:#CCCCCC;
+		}
+	</style>
+</head>
+<body>
+	<p id="testp">你好</p>
+	<p id="testp1">我永远在这里</p>
+	<script src="js/jquery-3.3.1.min.js">
+	</script>
+	<script>
+		$(document).ready(function(){
+			var $pObj=$("#testp");
+			alert("获取第一个P的内容："+$pObj.html());
+			var $pObj1=$("#testp1");
+			alert("获取第二个P的内容："+$pObj1.html());
+			var pObj=$pObj[0];
+			alert("利用DOM获取第一个P的内容："+pObj.innerText)
+
+		})
+	</script>
+</body>
+</html>

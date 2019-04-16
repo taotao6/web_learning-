@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas操作文字像素生成动画</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        html,body{
+            width:100%;
+            height:100%;
+        }
+        #canvas{
+            margin:0 auto;
+            position:relative;
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas" style="width:300px;height:300px;"></div>  <!-- 一定要使用内联的width和height -->
+</body>
+</html>
+<script>
+    var jquery = (function(){   
+        var $ = function(id){   // 模拟jq , 不过这是直接传id  ，不用加 #
+            return document.getElementById(id) || id;
+        }
+        return $;
+    }());  // (function(){}())  是匿名函数的闭包
+
+
+
+
+
+
+    var Testcanvas = (function($){   //声明一个类 ，也可以叫做方法  ，调用jquery里面的$方法
+        var extend = function (target, source) {
+            for (var key in source) {
+                if ((key in target)) {
+                    target[key] = source[key];
+                }
+            }
+            return target;
+        };
+
+
+        var addEvent = function(obj,event,func){   //绑定事件 例如  addEvent($("canvas"),"click",function(){alert(123);})
+            obj.addEventListener ? obj.addEventListener(event,func) : obj.attachEvent("on"+event,function(){func.call(obj)});
+        }
+        window.requesetAnimFrame = function () {
+            return window.requesetAnimationFrame ||
+                window.webkitRequestAnimationFrame ||
+                window.mozRequestAnimationFrame ||
+                window.oRequestAnimationFrame ||
+                window.msRequestAnimationFrame ||
+                function (fn) {
+                    window.setTimeout(fn, 1000/60);
+                };
+        }();
+
+
+        var mouseX = 0, mouseY = 0;
+        function onMousemove (e) {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        }
+
+
+
+
+        var init = function(opt){  //初始化选项
+            this.option = {
+                elementId : null,  //元素的id
+                text : "hello world",  //文字内容
+                density : 6,  //文字的像素密度 0-10 密度递减
+            }
+            extend(this.option,opt);
+            this.initialize();
+        }
+
+
+
+
+
+
+        init.prototype = {  //设置init属性
+            initialize : function(){
+                this.canvas =  this.genCanvas();  
+                this.ctx =  this.canvas.getContext("2d");  
+
+
+                this.pixels = [];  //储存像素
+                this.place = 0;    //像素位置
+
+
+                this.fillText();  //生成字体
+                this.getImgData();  //获取生成文字的数据
+                addEvent(this.canvas, 'mousemove', onMousemove);
+                this.loop();
+
+
+            },
+            loop: function () {
+                var _this = this;
+                /*setInterval(function () {
+                    _this.doFrame();
+                }, 20);
+                */
+                requesetAnimFrame(function () {_this.loop()});
+                this.doFrame();
+            },
+            doFrame: function () {
+                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+                for (var i = 0; i < this.pixels.length; i ++) {
+                    var p = this.pixels[i];
+                    p.update();
+                }
+            },
+
+
+            getImgData : function(){  //获取canvas上的像素
+                var imageData = this.ctx.getImageData(0,0,this.canvas.width,this.canvas.height); 
+                // 对于 ImageData 对象中的每个像素，都存在着四方面的信息，即 RGBA 值：
+                // R - 红色 (0-255)
+                // G - 绿色 (0-255)
+                // B - 蓝色 (0-255)
+                // A - alpha 通道 (0-255; 0 是透明的，255 是完全可见的)
+                // 以下代码可获得被返回的 ImageData 对象中第一个像素的 color/alpha 信息：
+                // red=imgData.data[0];
+                // green=imgData.data[1];
+                // blue=imgData.data[2];
+                // alpha=imgData.data[3];  //即像素的透明度  
+                
+                for(var x = 0;x < imageData.width;x++){
+                    for(var y = 0;y < imageData.height;y++){
+                        var i = 4*(y * imageData.width + x);
+                        if (imageData.data[i + 3] > 128) {  //判断像素的透明度  ，如果大于 128的话,就插入到像素数组中
+                            this.place ++;
+                            if((this.place%this.option.density == 0 && this.option.density >= 0 && this.option.density <= 10) || this.option.density == 0){
+                                this.pixels.push(new Pixelsrender(x, y, this.canvas));
+                            }
+                        }
+                    }
+                }
+            },
+
+
+            fillText : function(){
+                this.ctx.textAlign = "center";
+                this.ctx.textBaseline = "middle";
+                this.ctx.font = "50px sans-serif";
+                this.ctx.fillStyle = "#000000";
+                this.ctx.fillText(this.option.text,this.canvas.width/2,this.canvas.height/2);
+            },
+
+
+            genCanvas : function () {  //自动生成canvas
+                var canvas = document.createElement('canvas');
+                $(this.option.elementId).appendChild(canvas);
+
+canvas.setAttribute("width",$(this.option.elementId).style.width);
+
+                canvas.setAttribute("height",$(this.option.elementId).style.height);
+
+                return canvas;
+            }
+        }
+
+
+        var Pixelsrender = function(x,y,obj){  //生成像素的随机位置
+            this.endX = x;  //这是像素需要到达的终点位置
+            this.endY = y;//这是像素需要到达的终点位置
+            this.canvas = obj;
+            this.ctx = this.canvas.getContext('2d');
+            this.x = Math.random() * this.canvas.width;
+            this.y = Math.random() * this.canvas.height;
+
+
+            this.vx = Math.random()*10 - 5; 
+            this.vy = Math.random()*10 - 5;
+        }
+
+
+        Pixelsrender.prototype = {
+            render: function () {
+                var disX = this.endX - this.x;
+                var disY = this.endY - this.y;
+                var dis = Math.sqrt(Math.pow(disX, 2) + Math.pow(disY, 2));  //计算两点之间的距离
+                var force = dis * 0.1;
+                var angle = Math.atan2(disY, disX); // atan2(x, y) 返回点(x, y)到x 轴的弧度
+                this.vx += force * Math.cos(angle);
+                this.vy += force * Math.sin(angle);
+                this.vx *= 0.92;
+                this.vy *= 0.92;
+
+
+                this.x += this.vx;
+                this.y += this.vy;
+
+
+                this.ctx.fillStyle = '#ccc';
+                this.ctx.fillRect(this.x, this.y, 2, 2);
+            },
+            update: function () {
+                this.render();
+            }
+        }
+    
+        return init;
+    }(jquery||{}));  // jquery在存在的时候直接用，不存在的时候直接赋值为{}
+
+
+
+
+    window.onload = function(){
+        var option = {
+            elementId : "canvas",  //元素的id
+            text : "Canvas",  //文字内容
+            density : 6,  //文字的像素密度 0-10 密度递减
+        }
+        new Testcanvas(option);
+    }
+</script>

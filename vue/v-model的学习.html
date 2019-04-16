@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="lib/vue-2.4.0.js">
+    </script>
+</head>
+<body>
+<!--v-model实现表单和应用状态之间的双向绑定-->
+    <div id="app-6">
+        <p>{{message}}</p>
+        <input v-model="message">
+    </div>
+<script>
+    var app6 = new Vue({
+        el:"#app-6",
+        data:{
+            message:"hello world"
+        }
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 点击按钮改变p里面的内容 -->
+	<input type="button" value="点击按钮" id="btn">
+	<div id="dv1">
+	<p>我好帅</p>
+	<p>我好帅</p>
+	<p>我好帅</p>
+	<p>我好帅</p>
+	</div>
+	<div id="dv2">
+		<p>你好帅</p>
+		<p>你好帅</p>
+		<p>你好帅</p>
+	</div>
+	<input id="btn1" type="button" value="改变图片属性">
+	<img src="girl.png" alt="图片显示失败" title="小女孩">
+	<!-- 改变多个文本框的值 -->
+	<input id="btn2" type="button" value="改变文字">
+	<input type="text" value="">
+	<input type="text">
+	<input type="text">
+	<input type="text">
+	<input type="text">
+
+
+	<script type="text/javascript">
+			document.getElementById('btn').onclick=function (argument) {
+				var pObjs=document.getElementById("dv1").getElementsByTagName('p');
+				for (var i = 0; i <pObjs.length; i++) {
+				pObjs[i].innerText="我们都是p";
+				}
+			};
+			document.getElementById("btn1").onclick=function(){
+
+			var imgObjs = document.getElementsByTagName("img");
+			imgObjs[0].alt="呵呵";
+			imgObjs[0].title="哈哈";
+		};
+		document.getElementById("btn2").onclick=function(){
+			var inputs = document.getElementsByTagName("input");
+			for (var i = 0; i < inputs.length; i++) {
+				if (inputs[i].type!="button") {
+					inputs[i].value="你好啊";
+				}
+			}
+			};
+	</script>
+</body>
+</html>

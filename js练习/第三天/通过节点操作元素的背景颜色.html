@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input id="btn" type="button" value="点击按钮">
+	<div id="dv">
+	<p>这是一个P</p>
+	<span>这是一个span</span>
+	<p>这是一个P</p>
+	<span>这是一个span</span>
+	<p>这是一个P</p>
+	</div>
+	<script src="common.js"></script>
+	<script type="text/javascript">
+		my$("btn").onclick=function(){
+			var dvObj =  my$("dv");
+			var nodes = dvObj.childNodes;
+			for(var i=0;i<nodes.length;i++)
+			{
+				//判断这个子节点是不是p标签
+				if (nodes[i].nodeType==1&&nodes[i].nodeName=="P") {
+					nodes[i].style.backgroundColor="red";
+				}
+			}
+		};
+	</script>
+
+</body>
+</html>

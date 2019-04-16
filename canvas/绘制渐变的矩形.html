@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<canvas width="600px" height="400px"></canvas>
+	<script type="text/javascript">
+		// 线是由点构成的
+		var myCanvas = document.querySelector("canvas");
+		var ctx = myCanvas.getContext("2d");
+		ctx.lineWidth=30;
+		for(i=0;i<255;i++)
+		{
+		ctx.beginPath();
+		ctx.moveTo(100+i-1,100);
+		ctx.lineTo(100+i,100);
+		ctx.strokeStyle='rgb('+i+',255,45)';
+		ctx.stroke();
+	}
+		
+	</script>
+</body>
+</html>

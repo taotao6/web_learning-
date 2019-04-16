@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绘制魔性图形</title>
+</head>
+<body>
+	<div id='canvas-warp'>
+		<canvas id="canvas" style="border: 1px solid #aaaaaa;display: block;margin: 50px auto">你的电脑不支持Canva</canvas>
+	</div>
+	<script type="text/javascript">
+		window.onload=function(){
+			var canvas=document.getElementById('canvas');
+			canvas.width=800;
+			canvas.height=600
+			var context=canvas.getContext('2d');
+
+			context.beginPath();
+			context.rect(0,0,800,600);//画背景
+			context.fillStyle='#AA9063';
+			context.fill();
+
+			context.beginPath();
+			for(var i=0;i<20;i++){
+				drawWhiteRect(context,200+10*i,100+10*i,400-20*i,400-20*i);
+				drawBlackRect(context,205+10*i,105+10*i,390-20*i,390-20*i);
+			}
+
+			context.beginPath();
+			context.rect(395,295,5,5)
+			context.fillStyle="black";
+			context.lineWidth=5;
+			context.fill();//颜色填充
+			context.stroke();//描边
+			//画最里面黑色的小正方形
+								}
+
+			function drawBlackRect(ctx,x,y,width,height){
+				ctx.beginPath();
+				ctx.rect(x,y,width,height);
+
+				ctx.lineWidth=5;
+				ctx.strokeStyle="black";
+
+				ctx.stroke();
+
+			}
+			function drawWhiteRect(ctx,x,y,width,height){
+				ctx.beginPath();
+				ctx.rect(x,y,width,height);
+
+				ctx.lineWidth=5;
+				ctx.strokeStyle='white';
+
+				ctx.stroke();
+
+			}
+		
+
+
+	</script>
+</body>
+</html>

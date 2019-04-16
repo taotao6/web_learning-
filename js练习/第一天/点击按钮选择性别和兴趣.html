@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" value="选择性别" id="btn">
+	<input type="radio" value="1" name="sex">男
+	<input type="radio" value="2" name="sex" id="rad">
+	女
+	<input type="radio" value="3" name="sex">保密
+	<br/>
+	<input type="button" value="选择菜单" id="btn1">
+	<select id="ss">
+		<option value="1">油炸臭豆腐</option>
+		<option value="2">爆炒鸡丁</option>
+		<option value="3" id="op">清蒸豆腐</option>
+		<option value="4">红烧肉</option>
+	</select>
+	<textarea readonly="readonly">我真是个大帅哥
+	</textarea>
+	<script src="common.js"></script>
+	<script type="text/javascript">
+		my$("btn").onclick=function(){
+			my$("rad").checked = true;
+		};
+		my$("btn1").onclick=function(){
+				my$("op").selected=true;
+		};
+	</script>
+</body>
+</html>

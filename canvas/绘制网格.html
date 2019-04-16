@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600px" height="400px"></canvas>
+	<script type="text/javascript">
+		var myCanvas=document.querySelector("canvas");
+		var ctx = myCanvas.getContext("2d");
+		var gridSize = 20;
+		var arrowSize = 10;
+
+		var canvasHeight = ctx.canvas.height;
+		var canvasWidth = ctx.canvas.width;
+
+		var xlineTotal = Math.floor(canvasHeight/gridSize);
+		var ylineTotal = Math.floor(canvasWidth/gridSize);
+
+		/*画多少条x轴方向的线*/
+		for (var i = 0; i < xlineTotal; i++) {
+			ctx.beginPath();
+			ctx.moveTo(0,i*gridSize-0.5);
+			ctx.lineTo(canvasWidth,i*gridSize);
+			ctx.stroke();
+		}
+		// 画多少条y轴方向的线
+		for (var i = 0; i <ylineTotal; i++) {
+			ctx.beginPath();
+			ctx.moveTo(i*gridSize-0.5,0);
+			ctx.lineTo(i*gridSize,canvasHeight);
+			ctx.stroke();
+		}
+
+		ctx.beginPath();
+		ctx.lineWidth=3;
+		// 绘制x轴
+		ctx.moveTo(gridSize,canvasHeight-gridSize);
+		ctx.lineTo(canvasWidth-gridSize,canvasHeight-gridSize);
+		// 绘制箭头
+		ctx.lineTo(canvasWidth-gridSize-arrowSize,canvasHeight-gridSize+arrowSize/2);
+		ctx.lineTo(canvasWidth-gridSize-arrowSize,canvasHeight-gridSize-arrowSize/2);
+		ctx.lineTo(canvasWidth-gridSize,canvasHeight-gridSize);
+		ctx.fill();
+		ctx.stroke();
+
+		// 绘制y轴
+		ctx.beginPath();
+		ctx.lineWidth=3;
+		ctx.moveTo(gridSize,canvasHeight-gridSize);
+		ctx.lineTo(gridSize,gridSize);
+		ctx.lineTo(gridSize+arrowSize/2,gridSize+arrowSize);
+		ctx.lineTo(gridSize-arrowSize/2,gridSize+arrowSize);
+		ctx.lineTo(gridSize,gridSize);
+		ctx.fill();
+		ctx.stroke();
+	</script>
+</body>
+</html>

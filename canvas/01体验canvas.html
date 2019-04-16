@@ -1,0 +1,30 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+ 	<meta charset="UTF-8">
+ 	<title>Document</title>
+ 	<style type="text/css">
+ 		canvas{
+ 			border:2px solid #CCC;
+ 		}
+ 	</style>
+ </head>
+ <body>
+ 	<canvas>
+ 		
+ 	</canvas>
+ 	<script>
+ 		/*获取元素*/
+ 		var myCanvas=document.querySelector("canvas");
+ 		/*获取上下文,绘制工具箱*/
+ 		var ctx = myCanvas.getContext("2d");
+ 		/*移动画笔*/
+ 		ctx.moveTo(100,100);
+ 		/*绘制直线(轨迹)*/
+ 		ctx.lineTo(200,100);
+ 		/*描边*/
+ 		ctx.stroke();
+ 		
+ 	</script>
+ </body>
+ </html>

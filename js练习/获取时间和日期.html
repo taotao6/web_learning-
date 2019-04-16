@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Current Date and Time</title>
+	<script type="text/javascript">
+		function telltime(argument) {
+			var out = '';
+			var now = new Date();
+			out += '<br/>Date:' + now.getDate();
+			out += '<br/>Month' + now.getMonth();
+			out += '<br/>Year' + now.getFullYear();
+			out += '<br/>Hour' + now.getHours();
+			out += '<br/>Minute' + now.getMinutes();
+			out += '<br/>Second' + now.getSeconds();
+			document.getElementById('div1').innerHTML = out;
+		}
+		var a = setInterval(fn,13);
+	 	var num = 0;
+		function fn(){
+		alert("涛涛哥最帅！")
+		num++;
+		if(num == 10)
+		{
+			clearInterval(a);
+		}
+		// alert(num);
+	}
+	</script>
+</head>
+<body>
+	The current date and time are:<br>
+	<div id="div1"></div>
+	<script type="text/javascript">
+		telltime();
+	</script>
+	<input type="button" onclick="location.reload()" value="Refresh">
+</body>
+</html>

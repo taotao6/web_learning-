@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <style>
+        #uu>li{
+            cursor: pointer;
+            list-style: none;
+        }
+    </style>
+    <script>
+        $(function () {
+            $("#uu>li").mouseenter(function () {
+               $(this).css("background","red");
+            });
+            $("#uu>li").mouseleave(function () {
+                $(this).css("background","");
+            });
+            $("#uu>li").click(function () {
+                $(this).css("fontFamily",'KaiTi');
+                $(this).css("fontSize",24);
+            });
+        });
+    </script>
+</head>
+<body>
+<ul id="uu">
+    <li>中国文化</li>
+    <li>逍遥游</li>
+    <li>齐物论</li>
+    <li>过秦论</li>
+    <li>庄周</li>
+    <li>荀子</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" value="我好帅">
+	<input type="button" value="我好帅">
+	<input type="button" value="我好帅">
+	<input type="button" value="我好帅">
+	<input type="button" value="我好帅">
+	<script type="text/javascript">
+		//获取所有的按钮，分别注册点击事件
+		var btnObj = document.getElementsByTagName('input');
+		//遍历循环所有的按钮
+		for (var i = 0; i < btnObj.length; i++) {
+			btnObj[i].onclick=function () {
+				for (var j = 0; j < btnObj.length; j++) {
+					btnObj[j].value="我好帅";
+				}
+				this.value="你不帅";
+			};
+		}
+
+	</script>
+</body>
+</html>

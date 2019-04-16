@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		ul li{
+			list-style: none;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>小明的成绩</li>
+		<li>小李的成绩</li>
+		<li>小冰的成绩</li>
+		<li>小涛的成绩</li>
+		<li>小杰的成绩</li>
+	</ul>
+	<script type="text/javascript">
+		//总结：设置自定义属性：setAttribute("属性的名字","属性的值")
+		//获取自定义属性：getAttribute("属性的名字")
+		var list = document.getElementsByTagName('li');
+		for(var i=0;i<list.length;i++){
+			list[i].setAttribute("score",(i+1)*10);
+			list[i].onclick=function(){
+				alert(this.getAttribute("score"));
+			}
+		}
+
+
+	</script>
+</body>
+</html>

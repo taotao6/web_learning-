@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background-color:#fff8e1;
+        }
+        #container, .caption, .cupcake-mold, .candies1, .candies2, .candies3{
+            position:absolute;
+        }
+        #container{
+            margin:auto;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            width:200px;
+            height:200px;
+        }
+
+        .caption{
+            top:180px;
+            width:400px;
+            left:-6px;
+        }
+        .caption h1{
+            font-weight:lighter;
+            color:#0d47a1;
+            font-size:30px;
+            font-family:Arial;
+        }
+        .cupcake-mold{
+            width: 50px;
+            top:150px;
+            left:50px;
+            border:7px dotted #c51162;
+            border-top:50px solid #7986cb;
+            border-left:20px solid transparent;
+            border-right:20px solid transparent;
+            border-radius:0 0 5px 5px;
+        }
+        .cupcake-mold:before, .cupcake-mold:after{
+            position: absolute;
+            content:'';
+        }
+        .cupcake-mold:before{
+            width:100px;
+            height:50px;
+            top:-90px;
+            right:-24px;
+            border-radius:50px 50px 18px 18px;
+            background-color:#795548;
+        }
+        .cupcake-mold:after{
+            width:40px;
+            height:30px;
+            top:-117px;
+            right:5px;
+            border-radius:30px 30px 10px 10px;
+            background-color:#f06292;
+        }
+        .candies1 {
+            background-color: transparent;
+            border-radius: 100%;
+            width: 10px;
+            height: 10px;
+            border: 5px dotted darkblue;
+            top: 90px;
+            left: 85px;
+        }
+
+        .candies2 {
+            background-color: transparent;
+            border-radius: 10px;
+            width: 60px;
+            height: 10px;
+            border: 5px dotted #FFAD94;
+            top: 120px;
+            left: 60px;
+        }
+
+        .candies3 {
+            background-color: transparent;
+            border-radius: 100%;
+            width: 80px;
+            height: 10px;
+            border: 5px dotted #DAF2CB;
+            top: 130px;
+            left: 50px;
+        }
+    </style>
+</head>
+<body>
+<div id='container'>
+    <div class="caption">
+        <h2>好吃的cupcakes</h2>
+    </div>
+    <div class='cupcake-mold'></div>
+    <div class='candies1'></div>
+    <div class='candies2'></div>
+    <div class='candies3'></div>
+</div>
+</body>
+</html>

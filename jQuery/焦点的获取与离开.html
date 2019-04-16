@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <script>
+        $(function () {
+            $(window).focus(function () {
+                $(document).attr("title","哈哈");
+            });
+            $(window).blur(function () {
+                $(document).attr("title","我走了");
+            });
+
+        });
+    </script>
+</body>
+</html>

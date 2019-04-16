@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="testInput">
+	<input type="button" value="输入的值为">
+	<script src="js/jquery-3.3.1.min.js">
+	</script>
+	<script>
+		$(document).ready(function(){
+			$("input[type='jbutton']").click(function(){
+				var inputValue=$("#testInput").val();
+				alert(inputValue);
+			});
+		});
+	</script>
+</body>
+</html>

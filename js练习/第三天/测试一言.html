@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 计算建站时间 -->
+	<p>正在计算。。。</p>
+	<input id="btn" type="button" value="点击按钮">
+	<script>
+	function run_date(date){
+    // 建站日期
+    var created = Date.parse(date);
+    // 现在时间
+    var now = new Date().getTime();
+    // 存活时间
+    var cha = now - created;
+    // 有多少天
+    var day = cha / 864e5;
+    // 取整数输出天
+    var day_c = Math.floor(day);
+    // 减去整数的天，得出剩下的小数，并变成小时（1 天等于 24 小时）
+    var hour = 24 * (day - day_c);
+    // 取整数输出小时
+    var hour_c = Math.floor(hour);
+    // 减去剩下的小时，得出剩下的小数，几分钟（1小时等于60分）
+    var min = 60 * (hour - hour_c);
+    // 取整数输出分钟
+    var min_c = Math.floor(min);
+    // 剩下的就是秒，直接取整
+    var sec = Math.floor(60 * (min - min_c));
+    return "站点已萌萌哒存活了 <a>" + day_c + "</a> 天 <a>" + hour_c + "</a> 小时 <a>" + min_c + "</a> 分 <a>" + sec + "</a> 秒";
+}
+setInterval(function () {
+    document.getElementsByTagName('p')[0].innerHTML = run_date("2019/2/25 19:13:09");
+}, 1000);
+</script>
+  <script>
+        var a_idx = 0; 
+jQuery(document).ready(function($) { 
+    $("body").click(function(e) { 
+        var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正" ,"法治", "爱国", "敬业", "诚信", "友善"); 
+        var $i = $("<span/>").text(a[a_idx]); 
+        a_idx = (a_idx + 1) % a.length; 
+        var x = e.pageX, 
+        y = e.pageY; 
+        $i.css({ 
+            "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+
+            "top": y - 20, 
+            "left": x, 
+            "position": "absolute", 
+            "font-weight": "bold", 
+            "color": "#ff6651" 
+        }); 
+        $("body").append($i); 
+        $i.animate({ 
+            "top": y - 180, 
+            "opacity": 0 
+        }, 
+        1500, 
+        function() { 
+            $i.remove(); 
+        });
+    }); 
+}); 
+</script>
+<script type="text/javascript">
+	document.getElementById("btn").attachEvent("onclick",function(){
+		console.log("hshsh ");
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+﻿<!DOCTYPE HTML> <!--声明文档类型 DTD文档声明-->
+<html> <!--网页结构开始的地方-->
+	<head>
+		<title>涛涛做的css3爱心日食</title>
+		<meta charset="utf-8"> <!--设置编码格式 支持中文的万国码 gb2312国标 gbk支持港澳台的繁体中文-->
+		<meta name="keywords" content="web前端,表白爱心"> <!--设置网页关键词-->
+		<meta name="description" content="涛涛做的好看的网页">
+		<style>/*样式的设计图纸,页面上所有标签的样式*/
+			*{/*通配符选择器 选择页面上所有的元素*/
+				margin:0;/*清除默认外边距*/
+				padding: 0;
+			 }
+			html{
+				height:100%;/*继承浏览器的高度*/
+				}
+			body{
+				display:grid;
+				height:100%;/*继承父级html高度*/
+				background-color:skyblue;
+				animation:atmosphere 5s linear infinite;
+				}
+			#wrap{
+				position:relative;
+				margin:auto;
+				}
+			#wrap .love{
+				width:200px;
+				height:180px;
+				}
+			#wrap .love:before{
+				position:absolute;
+				left:34px;
+				content:'';
+				width:100px;
+				height:150px;
+				background-color:#ffff33;
+				border-radius:50px 50px 0 0;
+				transform:rotate(-45deg);/*顺逆时针旋转45度*/
+				}
+			#wrap .love:after{
+				position:absolute;
+				left:70px;
+				content:'';
+				width:100px;
+				height:150px;
+				background-color:#ffff33;
+				border-radius:50px 50px 0 0;
+				transform:rotate(45deg);/*顺逆时针旋转45度*/
+				}
+			.love:last-of-type{/* 最后一个.love元素*/
+				position:absolute;
+				top:0;
+				left:200px;
+				animation:move 5s linear infinite;
+				}
+			#wrap .love:last-of-type::before,#wrap .love:last-of-type::after{
+				background-color:skyblue;
+				animation:atmosphere 5s linear infinite;
+			}
+			/*动画序列*/
+			@keyframes move{
+				0%{left:200px;}
+				100%{left:-200px;}
+			}
+			@keyframes atmosphere{
+				0%{
+				background:skyblue;}
+				50%{
+				background:black;
+			}
+				100%{
+				background:skyblue;}
+			}
+		</style>
+</head>
+	<body>
+		<div id="wrap">
+			<div class="love"></div>
+			<div class="love"></div>
+		</div>
+		<marquee>
+			哈哈哈，最喜欢你啊！
+		</marquee>
+		<a href="九个小格.html">九个小格子</a>
+	</body>
+</html>
+<!--
+div+css
+div:盒子模型 在页面上划分区域的元素
+css:修饰页面上元素的样式 宽度 高度 背景 边框 位置
+ID命名:通过ID名称选择到某一个标签 唯一性
+-->
+<!--
+如何把图形居中
+第一种方法:top:50%;
+left:50%;
+margin-top:-50px;向上移50px;
+margin-left:-50px;向左移50px;
+第二种方法:
+				position:relative;/*相对定位父级 参考系*/
+				position:absolute;/*绝对定位父相子决*/
+				left:0;
+				right:0;
+				top:0;
+				bottom:0;
+				margin:auto;
+第三种方法:
+flex弹性盒模型
+display:flex /*开启盒模型*/
+justfy-content:center;/*主轴(横轴)方向对齐方式 居中*/
+align-items:center;/*辅轴方向对齐方式 居中*/
+第四种方法;
+body
+{display:grid;/*栅格化布局*/
+在wrap中margin:auto;
+
+标签语义化
+
+一个冒号是伪类,两个冒号是伪元素,但考虑到兼容性问题,用一个冒号
+伪类;
+伪元素:after,before
+
+content内容激活伪元素;
+
+伪元素默认为inline元素行内元素
+
+css动画
+-->

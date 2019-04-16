@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			background-color: ;
+		}
+	</style>
+
+	</head>
+<body>
+
+	<input type="button" value="点击按钮" id="btn">
+	<input type="button" value="点击按钮" id="btn1">
+	<script type="text/javascript">
+		var Obj = document.getElementById("btn");
+		$(Obj).click(function(){
+			console.log("今天又变帅了.")
+		});
+		$("#btn1")[0].onclick=function(){
+			console.log("今天又变帅了.")
+		};
+	</script>
+</body>
+</html>

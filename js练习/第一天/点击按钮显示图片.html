@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" value="显示图片" id="btn">
+	<img src="" id="pic">
+	<input type="button" value="修改文字" id="btn1">
+	<p id="p1">我是涛涛</p>
+	<input type="button" value="修改超链接" id="btn2">
+	<a id="aa" href="http://baidu.com">百度</a>
+	<script type="text/javascript">
+		var btnObj = document.getElementById('btn');
+		//为按钮注册点击事件，添加事件处理函数
+		btn.onclick=function(argument) {
+			//根据id获取图片的标签，设置图片的src属性值
+			var picObj = document.getElementById('pic');
+			pic.src="girl.png";
+			pic.width="100";
+			pic.height="200";
+		}
+		//根据id获取按钮，为按钮注册点击事件，添加事件处理的函数
+		//凡是成对出现的，修改其中的内容都用innerText
+		document.getElementById("btn1").onclick=function(){
+			document.getElementById("p1").innerText="你可真帅！";
+		}
+		document.getElementById("btn2").onclick=function(){
+			var aObj = document.getElementById("aa");
+			aObj.href="http://www.libingtao.cn";
+			aObj.innerText="涛涛的个人主页";
+		}
+		;
+
+	</script>
+</body>
+</html>

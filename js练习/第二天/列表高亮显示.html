@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+	<style>
+		ul{
+			list-style: none;
+			cursor: pointer;
+		}
+		.show{
+			display: block;
+		}
+		.hide{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>涛涛</li>
+		<li>明天</li>
+		<li>要会</li>
+		<li>更好</li>
+		<li>啊啊啊</li>
+	</ul>
+	<i id="tubiao" class="fa fa-weixin fa-2x">
+		<div class="" id="er">
+			<img src="我的二维码.png" alt="">
+		</div>
+	</i>
+	<script src="common.js"></script>
+	<script type="text/javascript">
+		var list = document.getElementsByTagName('li');
+		for (var i = 0; i < list.length; i++) {
+			list[i].onmouseover=function(){
+				this.style.backgroundColor="pink";
+				
+			};
+			list[i].onmouseout=function(){
+				this.style.backgroundColor="";
+		};
+	}
+	</script>
+	<script type="text/javascript">
+		my$("tubiao").onmouseover=function(){
+			my$("er").className="show";
+	};
+	my$("tubiao").onmouseout=function(){
+			my$("er").className="hide";
+	};
+	</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+	<!-- 
+	表单标签DOM操作中设置和获取value属性的值--对象.value
+	
+	$.val();表示的是获取该元素的value属性值
+
+	$.val('值');表示的是设置该元素的value属性
+
+	$.css('css属性的名字','属性的值');设置元素的样式属性值
+	
+
+
+	 -->
+	<input type="button" value="关灯" id="btn">
+	<script type="text/javascript">
+		$("#btn").click(function(){
+			if ($(this).val()=="关灯") {
+				$("body").css("backgroundColor","black");
+				$(this).val("开灯");
+			}
+			else
+			{
+				$("body").css("backgroundColor","");
+				$(this).val("关灯");
+			}
+		});
+	</script>
+</body>
+</html>

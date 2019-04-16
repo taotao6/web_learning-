@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width:1100px;
+			height:733px;
+			overflow: hidden;
+			/*background-color:pink;*/
+			/*transform: scale(0.8,1);宽度变为原来的80%，高度不变。*/
+			/*transform: scale(0.8);*/
+			/*宽度和高度都变为原来的80%*/
+		}
+		div img{
+			transition: all 0.4s;
+		}
+		div:hover img{
+			transform: scale(1.2);
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<img src="image/花.jpg" alt="" width="1100px" height="733px">
+	</div>
+</body>
+</html>

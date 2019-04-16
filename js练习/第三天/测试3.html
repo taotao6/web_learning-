@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p class="gushi">加载中...</p>
+	<p class="hitokoto"></p>
+	<!-- <span id="jinrishici-sentence">正在加载今日诗词....</span>
+<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> -->
+   <input type="button" value="换一句" onclick="hitokoto()">
+   <script src="jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+	window.onload=function () {
+    var hitokoto = document.querySelector('.gushi');
+    update();
+    function update() {
+        gethi = new XMLHttpRequest();
+        gethi.open('GET', 'https://api.gushi.ci/all.json');
+        //这里选择类别，详见官方文档
+        gethi.send();
+        gethi.onreadystatechange = function () {
+            if (gethi.readyState===4 && gethi.status===200) {
+                var Hi = JSON.parse(gethi.responseText);
+                console.log(Hi);
+                hitokoto.innerHTML = Hi.content+'---'+Hi.author+'《'+Hi.origin+'》';
+                // from.innerHTML = "---" + Hi.from; //可自定义输出格式
+            }
+        }
+    }
+}
+	function hitokoto() {
+	$("p.hitokoto").html("加载中"),$.ajax( {
+	url:"https://v1.hitokoto.cn/?c=a&encode=json",async:!0,success:function(e) {
+	$("p.hitokoto").html(e.hitokoto+" - "+e.from)
+}
+})
+};
+	</script>
+</body>
+</html>

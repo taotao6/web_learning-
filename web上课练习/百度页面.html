@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>百度一下,你就知道</title>
+	<style type="text/css">
+		*{
+			margin: 0px;padding: 0px;
+		}
+		body{
+			position: relative;
+			background-image: url("css样式/img/狗.jpg");
+			background-size: cover;
+			width: 100%;
+
+		}
+		.menu{
+			text-align: right;
+			text-decoration: underline;
+			font-size: 16px;
+			word-spacing: 12px;
+		}
+		.menu .more{
+			color: #fff;
+			width: 110px;
+			height: 50px;
+			background-color:#368;
+			padding: 10px;
+		}
+		.menu .nav{
+			color: #fff;
+		}
+		.logo img{
+			position: absolute;
+			margin-left: 680px;
+			top: 150px;
+		}
+		.serch1{
+			position: absolute;
+			top: 280px;
+			height: 45px;
+			width: 675px;
+			margin-left: 440px;
+			}
+		.serch2{
+			position: absolute;
+			top: 280px;
+			height: 49px;
+			width: 105px;
+			margin-left: 1118px;
+		}
+	</style>
+</head>
+<body>
+	<div class="menu">
+		<a href="" class="nav"> 新闻</a>
+		<a href="" class="nav">hao123</a>
+		<a href="" class="nav">地图</a>
+		<a href="" class="nav">视频</a>
+		<a href="" class="nav">贴吧</a>
+		<a href="" class="nav">学术</a>
+		<a href="" class="nav">设置</a>
+		<a href="" class="more">更多产品</a>
+	</div>
+	<div class="logo">
+		<img src="css样式/img/百度logo.png" width="262px" height="120px">
+	</div>
+	<div class="serch">
+		<form target="_blank" name="bdfm" method="get" action="http://www.baidu.com/s">
+            <input class="serch1" type="text" id="search" name="word"/>
+            <input class="serch2" type="button" name="" value="百度一下">
+		</form>
+	</div>
+</body>
+</html>

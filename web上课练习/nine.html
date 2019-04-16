@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>九宫格</title>
+	<style type="text/css">
+	*{
+		margin: 0px;
+		padding: 0px;
+	}
+	.wrap{
+		text-align: center;
+	}
+	div.box{
+		width: 31%;
+		/*height: 30vw;*/
+		padding-bottom: 31%;/*设置垂直方向的padding撑开容器,相对于父元素的宽度，其高度不再依赖于父元素的高度*/
+		border-radius: 10%;
+		margin: 1%;/*用2%就超过了1*/
+		float: left;
+		background-color: orange;
+	}
+
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>填充线性渐变</title>
+</head>
+<body>
+	<div id="canvas-warp">
+		<canvas id="canvas" style="border: 1px solid #aaaaaa;display: block;margin: 50px auto;">
+			你的浏览器居然不支持canvas,赶紧换一个吧！
+		</canvas>
+	</div>
+
+	<script>
+    window.onload = function(){
+        var canvas = document.getElementById("canvas");
+        canvas.width = 800;
+        canvas.height = 600;
+        var context = canvas.getContext("2d");
+
+        //添加渐变线
+        var grd = context.createRadialGradient(400,300,100,400,300,200);
+
+        //添加颜色断点
+        grd.addColorStop(0,"olive");//橄榄色
+        grd.addColorStop(0.25,"maroon");//栗色
+        grd.addColorStop(0.5,"aqua");//浅蓝绿色
+        grd.addColorStop(0.75,"fuchsia");//紫红色
+        grd.addColorStop(1,"teal");//深蓝绿色
+
+        //应用渐变
+        context.fillStyle = grd;
+
+        context.fillRect(100,100,600,400);
+    }
+
+</script>
+	<!--
+	<script type="text/javascript">
+		window.onload=function(){
+			var canvas=document.getElementById('canvas');
+			canvas.width=800;
+			canvas.height=600;
+			var context=canvas.getContext('2d');
+
+			context.rect(200,100,400,400);
+			//添加渐变线
+			var grd=context.createLinearGradient(200,300,600,300);
+			//添加颜色断点
+			grd.addColorStop(0,'black');
+			grd.addColorStop(0.5,'white');
+			grd.addColorStop(1,'black');
+			//应用渐变
+			context.fillStyle=grd;
+			context.fill();
+
+		}
+	</script>
+-->
+</body>
+</html>

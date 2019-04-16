@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#dv1{
+			width: 200px;
+			height: 100px;
+			background-color: #E21A93;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" id="btn" value="改变颜色">
+	<div id="dv"></div>
+	<!-- 凡是css中这个属性是多个单词的写法，在js代码中DOM操作的时候，把-去掉，后面的单词的首字母大写即可 -->
+	<br>
+	<input type="button" id="btn1" value="隐藏">
+	<div id="dv1"></div>
+	<script src="common.js"></script>
+	<script type="text/javascript">
+		my$("btn").onclick=function () {
+			my$("dv").style.width="200px";
+			my$("dv").style.height="300px";
+			my$("dv").style.backgroundColor="pink";
+		};
+		my$("btn1").onclick=function(){
+			if (this.value=="隐藏") {
+				my$("dv1").style.display="none";
+				this.value="显示";
+			}else if (this.value=="显示") {
+				my$("dv1").style.display="block";
+				this.value="隐藏";
+			}
+		};
+	</script>
+</body>
+</html>

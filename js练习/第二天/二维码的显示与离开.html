@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+	<style>
+	.hide{
+		display: none;
+	}
+	.show{
+		display: block;
+	}
+	i{
+		position: fixed;
+		right: 10px;
+		top: 40%;
+		cursor: pointer;
+	}
+	img{
+		position:fixed;
+		top: 40%;
+		right: 48px;
+	}
+	</style>
+</head>
+<body>
+	<i id="tubiao" class="fa fa-weixin fa-2x">
+		
+	</i>
+	<div class="erweima hide" id="er">
+			<img src="我的二维码.png" alt="">
+		</div>
+	<script src="common.js"></script>
+	<script type="text/javascript">
+		var iObj=document.getElementsByTagName('i')[0]
+		iObj.onmouseover=function(){
+			document.getElementsByTagName('div')[0].className="show";
+		};
+		iObj.onmouseout=function(){
+			document.getElementsByTagName('div')[0].className="hide";
+		};
+	</script>
+</body>
+</html>

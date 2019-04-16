@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>基础的Canvas</title>
+</head>
+<body>
+	<div id="canvas-warp">
+		<canvas id="canvas" style="border: 1px solid #aaaaaa;display: block;margin: 50px auto;" >
+		</canvas>
+	</div>
+	<script type="text/javascript">
+	window.onload=function(){
+		var canvas = document.getElementById('canvas');
+		canvas.width=800;
+		canvas.height=600;
+		var context = canvas.getContext('2d')
+		context.beginPath();//表示下次绘制的起始之处为beginPath后面的代码
+		context.moveTo(150,50);
+		context.lineTo(650,50);
+		context.lineTo(650,550);
+		context.lineTo(150,550);
+		context.lineTo(150,50);
+		context.closePath();//使用closePath()闭合图形
+		context.fillStyle='yellow';//填充颜色为黄色
+		context.lineWidth=5;
+		context.strokeStyle='red';
+		context.fill();
+		context.stroke();
+		
+
+	}
+
+	</script>
+</body>
+</html>

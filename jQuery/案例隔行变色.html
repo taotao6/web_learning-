@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!--odd 奇数的 even 偶数的-->
+    <script>
+        $(function () {
+        //    要求:奇红偶黄,在写代码的过程中就是奇黄偶红
+            $("#btn").click(function () {
+                $("ul>li:odd").css("backgroundColor","yellow");
+                $("ul>li:even").css("backgroundColor","red");
+            });
+        });
+    </script>
+</head>
+<body>
+<input type="button" value="隔行变色" id="btn">
+<ul>
+    <li>你好</li>
+    <li>我很好</li>
+    <li>郭大侠</li>
+    <li>杨过</li>
+    <li>小龙女</li>
+    <li>酸菜鱼</li>
+    <li>二锅头</li>
+    <li>闭包</li>
+</ul>
+</body>
+</html>

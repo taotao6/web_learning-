@@ -1,0 +1,12 @@
+/*官网头部样式*/
+*{margin: 0px;padding: 0px;}
+/*头部区域整体样式*/
+.head{width: 100%;height: 100px;background: #ccc;}
+	/*头部区域顶部*/
+	.head .h_top{width: 100%;height: 30px;background: #383838;}
+	.head .h_top ul li{list-style: none;float: left;}
+	.head .h_top ul li a{font-size: 12px;color: #fff;line-height: 30px;text-decoration: none;padding: 0 16px;}
+	.head .h_top .t_con{min-width: 1200px;}
+	.head .h_top .t_con ul.t_nav{float: left;}
+							ul.t_nav li a{border-left:1px solid #fff; }
+	.head .h_top .t_con ul.t_user{float: right;}

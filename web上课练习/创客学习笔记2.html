@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>封装绘制矩形</title>
+</head>
+<body>
+	<div id="canvas-warp"> 
+		<canvas id="canvas" style="border: 1px solid #aaaaaa;display: block;margin: 50px auto;">
+		你的浏览器不支持canvas？赶快换一个吧！！
+		</canvas>
+	</div>
+	<script type="text/javascript">
+		window.onload=function(){
+			var canvas=document.getElementById('canvas');
+			canvas.width=800;
+			canvas.height=600;
+			var context=canvas.getContext('2d')
+
+			drawRect(context,150,50,50,50,'red',5,'blue');
+			drawRect(context,250,50,50,50,'green',5,'red');
+			drawRect(context,350,50,50,50,'yellow',5,'black');
+		}
+
+
+		function drawRect(ctx,x,y,width,height,fillColor,borderWidth,borderColor){
+			ctx.beginPath();
+			ctx.rect(x,y,width,height);
+			//ctx.moveTo(x,y);
+			//ctx.lineTo(x+width,y);
+			//ctx.lineTo(x+width,y+height);
+			//ctx.lineTo(x,y+height);
+			//ctx.lineTo(x,y);
+			//ctx.closePath();
+
+			ctx.lineWidth=borderWidth;
+			ctx.strokeStyle=borderColor;
+			ctx.fillStyle=fillColor;
+
+			ctx.fill();//颜色填充
+			ctx.stroke();//描边
+		}
+	</script>
+</body>
+</html>

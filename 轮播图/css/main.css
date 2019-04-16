@@ -1,0 +1,72 @@
+*   {
+		margin: 0;
+		padding: 0;
+	}
+#banner{
+		width: 340px;
+		height: 190px;
+		margin: 20px auto;
+ 		border: 1px solid red;
+		position: relative;
+		}
+#banner .pic{
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+			}
+li  {
+		list-style: none;
+	}
+#banner .pic ul{
+		width: 1000%;
+		}
+#banner .pic ul li{
+		float: left;
+		}
+#banner .tab{
+		width: 90px;
+		height: 14px;
+		position: absolute;
+		left: 50%;
+		margin-left: -45px;
+		bottom: 10px;
+		/*background-color: #fff;*/
+		}
+#banner .tab ul li{
+		width: 10px;
+		height: 10px;
+		background-color: rgb(255,255,255,0.5);
+		border-radius: 50%;
+		margin: 0px 3px;
+		float: left;
+		cursor: pointer;/*鼠标移动上去变成手指*/
+}
+#banner .tab ul li.on{
+	background-color: #F64619;
+}
+#banner .btn div{
+	width: 40px;
+	height: 40px;
+	background-color: rgba(0,0,0,0.3);
+	color: #fff;
+	font-size: 26px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 40px;
+	cursor: pointer;
+	position: absolute;
+	top:50%;
+	margin-top: -20px;
+}
+#banner .btn #leftBtn{
+	
+	left: 5px;
+}
+#banner .btn #rightBtn{
+	
+	right: 5px;
+}
+#banner .btn div.hover
+{
+	background-color: rgba(0,0,0,0.6);
+}
