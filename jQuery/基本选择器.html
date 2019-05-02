@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>基本选择器</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<!--ID选择器-->
+<input type="text" id="testInput" name="test" value=""/>
+<button id="btn1">输入的值为</button>
+<!--标签选择器-->
+<div>这里种植了一颗草莓</div>
+<div>这里养了一条金鱼</div>
+<button id="btn2">点击</button>
+<!--类名选择器-->
+<div class="myClass">注意观察我的样式</div>
+<div>这是我的默认样式</div>
+<!--复合选择器-->
+<p class="default">p元素</p>
+<div class="default">div元素</div>
+<span class="default" id="span">ID为span的元素</span>
+<button id="btn3">点击div和span换肤</button>
+<!--隐藏超链接地址-->
+<a href="index.html" class="main" >登录</a>
+</body>
+<script>
+    $(function () {
+        $("#btn1").click(function () {
+            var inputValue = $("#testInput").val();
+            alert(inputValue);
+        });
+        $("#btn2").click(function () {
+            $("div").eq(0).html("草莓被我吃了");
+            $("div")[1].innerHTML="金鱼死了";
+        });
+
+        var myClass=$(".myClass");
+        myClass.css("backgroundColor","#C52000");
+        myClass.css("color","#fff");
+
+        $("#btn3").click(function () {
+            $("#span").css("backgroundColor","red");
+        });
+
+        $("a.main").click(function () {
+            return false;
+        })
+
+    });
+</script>
+</html>

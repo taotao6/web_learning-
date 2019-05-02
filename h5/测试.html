@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Title</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<p id="hitokoto">:D 获取中...</p>
+<!-- 新 API 方法， 十分简洁 -->
+<script>
+
+    // 本示例需要浏览器支持 Promise 以及 fetch. 若需要全部浏览器支持， 请参考一言示例引用 bluebird 和 fetch.
+    function fetch163Playlist(playlist_id) {
+        return new Promise(function (ok, err) {
+            fetch("https://v1.hitokoto.cn/nm/playlist/" + playlist_id)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    var arr = [];
+                    data.playlist.tracks.map(function (value) {
+                        arr.push(value.id);
+                    });
+                    return arr;
+                })
+                .then(function (ids) {
+                    return fetch163Songs(ids);
+                })
+                .then(function (data) {
+                    ok(data);
+                })
+                .catch(function (e) {
+                    err(e);
+                });
+        })
+    }
+
+    function fetch163Songs(IDS) {
+        return new Promise(function (ok, err) {
+            var ids;
+            switch (typeof IDS) {
+                case 'number':
+                    ids = [IDS];
+                    break;
+                case 'object':
+                    if (!Array.isArray(IDS)) {
+                        err(new Error("Please enter array or number"));
+                    }
+                    ids = IDS;
+                    break;
+                default:
+                    err(new Error("Please enter array or number"));
+                    break;
+            }
+            fetch("https://v1.hitokoto.cn/nm/summary/" + ids.join(",") + "?lyric=true&common=true")
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    var songs = [];
+                    data.songs.map(function (song) {
+                        songs.push({
+                            name: song.name,
+                            url: song.url,
+                            artist: song.artists.join("/"),
+                            album: song.album.name,
+                            pic: song.album.picture,
+                            lrc: song.lyric
+                        });
+                    });
+                    return songs;
+                })
+                .then(function (result) {
+                    ok(result);
+                })
+                .catch(function (e) {
+                    err(e);
+                });
+        });
+    }
+
+    // 使用测试
+    fetch163Playlist(2158283120)
+        .then(function (data) {
+            console.log(data);
+        })
+        .catch(function (err) {
+            console.error(err);
+        })
+    fetch163Songs([28391863, 22640061])
+        .then(function (data) {
+            console.log(data);
+        })
+        .catch(function (err) {
+            console.error(err);
+        })
+</script>
+
+<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script><!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

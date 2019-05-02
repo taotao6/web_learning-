@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Title</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <style>
+        .background{
+            background: #cef;
+        }
+    </style>
+</head>
+<body>
+<!--label+p兄弟选择器紧接着label的p标签-->
+<!--label~p:label后面的所有的p标签-->
+    <div>
+        <label>第一个label</label>
+        <p>第一个p</p>
+        <p>第二个p</p>
+        <fieldset>
+            <label>第二个label</label>
+            <p>第三个p</p>
+        </fieldset>
+    </div>
+<script>
+    $("label~p").addClass("background");
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Title</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+
+</head>
+<body>
+<td><input type="text" id="email" onchange="isEmail()"/></td>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+
+        function isTel() {
+            var tel = document.getElementById('tel');
+            if(/1[0-9]{10}/.test(tel.value)){
+                alert("输入正确");
+            } else {
+                alert("输入错误");
+            }
+        }
+
+        function isEmail() {
+            var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$"); //正则表达式
+            var obj = document.getElementById('email'); //要验证的对象
+            if (obj.value === "") { //输入不能为空
+                alert("输入不能为空!");
+            } else if (!reg.test(obj.value)) { //正则验证不通过，格式不对
+                alert("验证不通过!");
+            } else {
+                alert("通过！");
+            }
+        }
+
+
+
+
+</script>
+</body>
+
+</html>
